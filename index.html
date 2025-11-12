@@ -1,18 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Aplicación del Clima</title>
+    <title>Presupuestos Pastelería</title>
 </head>
 <body>
   <div class="contenedor">
-    <h1>Aplicación de Clima</h1>
-    <input type="text" id="ciudadEntrada" placeholder="Ingrese una ciudad">
-    <button id="botonBusqueda">Buscar</button>
-    <div id="datosClima"></div>
+    <h1>🧁 Presupuestos Pastelería</h1>
+
+    <!-- Navegación entre secciones -->
+    <div class="navegacion">
+      <button class="tab-btn active" data-tab="ingredientes">Ingredientes</button>
+      <button class="tab-btn" data-tab="productos">Productos</button>
+      <button class="tab-btn" data-tab="presupuestos">Presupuestos</button>
+    </div>
+
+    <!-- Sección Ingredientes -->
+    <div id="ingredientes" class="seccion active">
+      <h2>Gestión de Ingredientes</h2>
+      <div class="formulario">
+        <input type="text" id="nombreIngrediente" placeholder="Nombre del ingrediente">
+        <input type="number" id="precioKg" placeholder="Precio por Kg ($)" step="0.01">
+        <button id="agregarIngrediente">Agregar Ingrediente</button>
+      </div>
+      <div id="listaIngredientes" class="lista"></div>
+    </div>
+
+    <!-- Sección Productos -->
+    <div id="productos" class="seccion">
+      <h2>Gestión de Productos</h2>
+      <div class="formulario">
+        <input type="text" id="nombreProducto" placeholder="Nombre del producto (ej: Brownies)">
+        <input type="number" id="margenGanancia" placeholder="Margen de ganancia (%)" value="50" step="1">
+        <button id="crearProducto">Crear Producto</button>
+      </div>
+
+      <div id="productoActual" class="producto-detalle" style="display:none;">
+        <h3 id="nombreProductoActual"></h3>
+        <div class="formulario-ingrediente-producto">
+          <select id="selectIngrediente">
+            <option value="">Seleccione ingrediente</option>
+          </select>
+          <input type="number" id="cantidadGramos" placeholder="Cantidad en gramos" step="0.1">
+          <button id="agregarIngredienteProducto">Agregar</button>
+        </div>
+        <div id="ingredientesProducto" class="lista-ingredientes-producto"></div>
+        <div class="precio-final">
+          <p><strong>Costo Total:</strong> $<span id="costoTotal">0.00</span></p>
+          <p><strong>Precio al Público:</strong> $<span id="precioPublico">0.00</span></p>
+        </div>
+        <button id="guardarProducto" class="btn-guardar">Guardar Producto</button>
+      </div>
+
+      <div id="listaProductos" class="lista"></div>
+    </div>
+
+    <!-- Sección Presupuestos -->
+    <div id="presupuestos" class="seccion">
+      <h2>Generar Presupuesto</h2>
+      <div class="formulario">
+        <input type="text" id="nombreCliente" placeholder="Nombre del cliente">
+        <input type="text" id="logoUrl" placeholder="URL del logo (opcional)">
+        <div id="listaProductosPresupuesto" class="lista-productos-presupuesto"></div>
+        <div class="total-presupuesto">
+          <h3>Total: $<span id="totalPresupuesto">0.00</span></h3>
+        </div>
+        <button id="generarPresupuesto" class="btn-generar">Generar Presupuesto</button>
+        <button id="compartirPresupuesto" class="btn-compartir">Compartir Presupuesto</button>
+      </div>
+    </div>
+
+    <!-- Modal para vista previa del presupuesto -->
+    <div id="modalPresupuesto" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="vistaPresupuesto"></div>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
