@@ -449,4 +449,554 @@ textarea {
     box-shadow: none;
     border: none;
   }
+  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.contenedor {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+h2 {
+    color: #333333;
+    padding: 15px 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+h3 {
+    color: #667eea;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+/* NAVEGACIÓN */
+.navegacion {
+    display: flex;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 10px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    background-color: #ffffff;
+    border-bottom: 3px solid #667eea;
+}
+
+/* SECCIONES */
+.seccion {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.seccion.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FORMULARIOS */
+.formulario {
+    padding: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:hover {
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* LISTAS */
+.lista {
+    padding: 10px 20px 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.mensaje-vacio {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+}
+
+.item-ingrediente,
+.item-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.info-ingrediente,
+.info-producto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-ingrediente strong,
+.info-producto strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.info-ingrediente span,
+.info-producto span {
+    font-size: 14px;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.info-producto small {
+    font-size: 12px;
+    color: #999;
+}
+
+.btn-eliminar {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: #ff4757;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.btn-editar {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: #ffa502;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.botones-producto {
+    display: flex;
+    gap: 5px;
+}
+
+/* PRODUCTO DETALLE */
+.producto-detalle {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 0 20px 20px;
+    border-radius: 10px;
+    border: 2px solid #667eea;
+}
+
+.formulario-ingrediente-producto {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.formulario-ingrediente-producto select {
+    flex: 2;
+    min-width: 150px;
+    margin-bottom: 0;
+}
+
+.formulario-ingrediente-producto input {
+    flex: 1;
+    min-width: 100px;
+    margin-bottom: 0;
+}
+
+.formulario-ingrediente-producto button {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 12px 20px;
+}
+
+.lista-ingredientes-producto {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.item-ingrediente-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border-left: 3px solid #764ba2;
+}
+
+.info-ingrediente-producto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.info-ingrediente-producto strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.info-ingrediente-producto span {
+    font-size: 13px;
+    color: #764ba2;
+}
+
+.precio-final {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.precio-final p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.btn-guardar {
+    background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
+}
+
+/* PRESUPUESTOS */
+.lista-productos-presupuesto {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.item-producto-presupuesto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    gap: 10px;
+}
+
+.info-producto-presupuesto {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-producto-presupuesto input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.info-producto-presupuesto label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.info-producto-presupuesto strong {
+    font-size: 15px;
+    color: #333;
+}
+
+.info-producto-presupuesto span {
+    font-size: 14px;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.cantidad-producto {
+    width: 70px;
+    padding: 8px;
+    margin: 0;
+    text-align: center;
+}
+
+.total-presupuesto {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.total-presupuesto h3 {
+    color: white;
+    padding: 0;
+    font-size: 22px;
+}
+
+.btn-generar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-bottom: 10px;
+}
+
+.btn-compartir {
+    background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
+}
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+}
+
+.presupuesto-generado {
+    padding: 20px;
+}
+
+.logo-presupuesto {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.presupuesto-generado h2 {
+    text-align: center;
+    color: #667eea;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.info-presupuesto {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.info-presupuesto p {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.tabla-presupuesto {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabla-presupuesto th {
+    background-color: #667eea;
+    color: white;
+    padding: 12px 8px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.tabla-presupuesto td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.tabla-presupuesto tfoot td {
+    background-color: #f8f9fa;
+    font-size: 16px;
+    border-top: 2px solid #667eea;
+}
+
+.nota-presupuesto {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding: 15px;
+    border-top: 2px solid #f0f0f0;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+        padding: 12px 15px;
+    }
+
+    .tab-btn {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+
+    .formulario {
+        padding: 15px;
+    }
+
+    .formulario-ingrediente-producto {
+        flex-direction: column;
+    }
+
+    .formulario-ingrediente-producto select,
+    .formulario-ingrediente-producto input,
+    .formulario-ingrediente-producto button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .tabla-presupuesto th,
+    .tabla-presupuesto td {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
 }
